@@ -2,36 +2,6 @@ var k = 0;
 
 function GetResult() {
   numberFromForm = eval(form.num.value);
-  var numberWord = true;
-  let arr = new Array();
-
-  let player = [
-    "rock",
-    "paper",
-    "scissors",
-    "lizard",
-    "spock",
-    "fire",
-    "watermellon"
-  ];
-
-  for (let i = 0; i < player.length; i++) {
-    numberWord = false;
-    if (player[i] == "paper" || player[i] == "lizard" || player[i] == "fire") {
-      arr.push("Word: it's " + player[i]);
-      numberWord = true;
-    } else {
-      arr.push("Word: " + player[i]);
-    }
-    if (numberWord == true) {
-      var length = parseInt(player[i].length) + 3;
-      arr.push("Number of letter's are: " + length);
-    } else {
-      arr.push("Number of letters: " + player[i].length);
-    }
-  }
-  alert(arr);
-
   fn = factorialNumber(numberFromForm);
   form.res.size = String(fn).length;
   form.res.type = "text";
@@ -82,4 +52,38 @@ function fibonaciNumbers(numberFromForm) {
   form.resFib.type = "text";
   form.resFib.size = result.length;
   form.resFib.value = num + " of Fibonacci numbers: " + numbers;
+}
+
+function GetResultRandom() {
+  var numberWord = true;
+  let arr = new Array();
+
+  let player = [
+    "rock",
+    "paper",
+    "scissors",
+    "lizard",
+    "spock",
+    "fire",
+    "watermellon"
+  ];
+
+  for (let i = 0; i < player.length; i++) {
+    numberWord = false;
+    if (player[i] == "paper" || player[i] == "lizard" || player[i] == "fire") {
+      arr.push("Word: it's " + player[i]);
+      numberWord = true;
+    } else {
+      arr.push("Word: " + player[i]);
+    }
+    if (numberWord == true) {
+      var length = parseInt(player[i].length) + 3;
+      arr.push("Number of letter's are: " + length);
+    } else {
+      arr.push("Number of letters: " + player[i].length);
+    }
+  }
+  alert(arr);
+  var RandomNum = Math.floor(Math.random() * player.length);
+  alert("Random word from this array is: " + player[RandomNum]);
 }
