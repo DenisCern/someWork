@@ -36,7 +36,11 @@ function GetResult() {
   form.res.size = String(fn).length;
   form.res.type = "text";
   form.res.value = fn;
-  fibonaciNumbers(numberFromForm);
+}
+
+function GetResultFib() {
+  numberFromFormFib = eval(form.num1.value);
+  fibonaciNumbers(numberFromFormFib);
 }
 
 function factorialNumber(numberFromForm) {
@@ -68,6 +72,10 @@ function fibonaciNumbers(numberFromForm) {
     g = f;
     f = h;
     num += 1;
+  }
+
+  if (numbers.length != num) {
+    numbers.splice(numbers.length - 1, 1);
   }
 
   var result = num + " of Fibonacci numbers: " + numbers;
